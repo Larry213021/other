@@ -1,0 +1,14 @@
+#密碼設定方式
+1.先在cmd打python
+
+2.打以下語法
+from notebook.auth import passwd
+passwd()
+
+3.複製sha密碼到c.NotebookApp.password上
+
+#jupyter notebook config的檔案設定項目
+c.NotebookApp.ip='*'
+c.NotebookApp.password = 'argon2:$argon2id$v=19$m=10240,t=10,p=8$vitQR142nmFGahSYflPtLA$oiqYiI8T6n4F1zQ8NcFWxw'
+c.NotebookApp.open_browser = True
+c.NotebookApp.port = 8888

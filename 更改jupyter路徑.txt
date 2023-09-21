@@ -1,0 +1,7 @@
+1、首先在cmd下进入python执行如下命令：
+ipython kernelspec list
+(要使用anaconda連結的編譯器才可)
+要安裝pip install ipykernel
+2.輸入後，會給一段位址，複製下來並前往
+
+3.更改kernel.json裡面編譯器的位址即可切換想要的版本

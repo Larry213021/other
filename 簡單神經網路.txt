@@ -1,0 +1,41 @@
+# 神經網路中要放入的套件
+from keras.models import Sequential
+from keras.layers import Flatten
+from keras.layers import Dense
+from keras.layers import Dropout
+
+# X是輸入資料，Y是答案
+X = [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
+Y = [1,1,1]
+
+# 建立模型
+# 把Sequential這個class命名一個新變數叫model，並使用model裡面的東西
+model = Sequential()
+# 開始放入100節點，每一次model.add(Dense())就是一個深度，activation是激活函數
+model.add(Dense(100,activation="relu"))
+# 可以使用dropout把一些過度學習的部分修邊幅
+model.add(Dropout(0.0))
+model.add(Dense(100,activation="relu"))
+model.add(Dropout(0.0))
+# 通常最後一層我們都是當成我們的"輸出層"，若要判別有無狀態，建議激活函數使用sigmoid
+model.add(Dense(1,activation='sigmoid'))
+# 挑選你要的(optimizer優化器)，使用的loss_function
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['acc'])
+
+# 正式開始訓練
+model.fit(x=X, y=Y,batch_size=1, epochs=50, verbose=1)
+
+
+# 可使用from sklearn.model_selection import train_test_split作為切割訓練集和測試集
+
+# X_train, X_test, Y_train, Y_test = train_test_split(X, Y,test_size=0.1)，test_size輸入0.1表示擷取資料的10%當驗證集
+
+# 上述切割完就可以用下面的方法做訓練
+
+# model.fit(x=X_train, y=Y_train, validation_data=(X_test, Y_test) ,batch_size=1, epochs=50, verbose=1)
+
+# 這邊有放validation_data=(X_test, Y_test)，表示可以從X和Y中，各自取一部分當作驗證集來觀察驗證的訓練效果如何
+
+#存取模型參數
+model.save('my_model.h5')
+model.save_weights('my_model_weights.h5')
