@@ -1,2 +1,5 @@
 更改電腦python版本:
 只要在"環境變數"中，在系統變數把你想要的python版本位置放到最上層即可
+舉例:
+C:\Users\user\AppData\Local\Programs\Python\Python310
+C:\Users\user\AppData\Local\Programs\Python\Python310\Scripts
